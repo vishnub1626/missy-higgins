@@ -38,6 +38,8 @@ class NewsletterController extends Controller
 
         event(new NewsletterCreated($newsletter));
 
-        return redirect('/admin/dashboard')->with('message', 'New newsletter created.');
+        return redirect()
+            ->route('dashboard')
+            ->with(['message' => 'newsletter created.']);
     }
 }

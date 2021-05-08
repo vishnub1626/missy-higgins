@@ -17,17 +17,11 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('logout', [AdminAuthenticationController::class, 'logout']);
 
     Route::middleware(['auth'])->group(function () {
-        Route::get('dashboard', [DashboardController::class, 'show']);
+        Route::get('dashboard', [DashboardController::class, 'show'])->name('dashboard');
 
         Route::delete('subscriptions/{subscription}', [SubscriptionController::class, 'destroy']);
 
         Route::get('newsletter/send', [NewsletterController::class, 'show']);
         Route::post('newsletter/send', [NewsletterController::class, 'store']);
     });
-});
-
-Route::get('/mailable', function () {
-    $newsletter = App\Models\Newsletter::latest()->first();
-
-    return new App\Mail\NewsletterCreated($newsletter);
 });

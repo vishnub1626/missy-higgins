@@ -5,6 +5,21 @@
         <div class="py-6">
             <div>
                 <h1 class="text-xl font-bold uppercase mb-3">Subscribers</h1>
+                @if (session()->has('message'))
+                    <div class="bg-green-100 border-t-4 border-green-500 rounded-b text-green-900 px-4 py-3 shadow-md"
+                        role="alert">
+                        <div class="flex">
+                            <div class="py-1"><svg class="fill-current h-6 w-6 text-green-500 mr-4"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path
+                                        d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+                                </svg></div>
+                            <div>
+                                <p class="font-bold">{{ session('message') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endif
                 <div
                     class="flex flex-col justify-between md:flex-row md:items-center bg-gray-50 px-2 py-4 rounded md:shrink-0">
                     <div class="flex flex-col items-end">
@@ -40,13 +55,13 @@
                         <div class="md:w-1/2">{{ $subscription->email }}</div>
                         <div class="md:flex md:items-center md:justify-center mt-4 md:mt-0">
                             <button class="underline text-blue-500 cursor-pointer mr-2">
-                            <a href="/admin/newsletter/send?to={{ $subscription->email }}">
+                                <a href="/admin/newsletter/send?to={{ $subscription->email }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                                         stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
                                     </svg>
-                            </a>
+                                </a>
                             </button>
                             <form method="post" action="/admin/subscriptions/{{ $subscription->id }}">
                                 <input type="hidden" name="_method" value="DELETE">
