@@ -16,5 +16,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::middleware(['auth'])->group(function () {
         Route::get('dashboard', [DashboardController::class, 'show']);
+
+        Route::delete('subscriptions/{subscription}', [SubscriptionController::class, 'destroy']);
     });
 });

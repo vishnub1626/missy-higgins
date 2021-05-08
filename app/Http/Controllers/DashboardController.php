@@ -9,10 +9,10 @@ class DashboardController extends Controller
 {
     public function show()
     {
-        $subscriptions = Subscription::paginate(2);
+        $subscriptions = Subscription::paginate(30);
 
         return view('admin.dashboard', [
-            'subscriptions' => []
+            'subscriptions' => $subscriptions
         ]);
     }
 }

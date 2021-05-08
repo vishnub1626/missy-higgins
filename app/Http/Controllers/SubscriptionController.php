@@ -35,4 +35,11 @@ class SubscriptionController extends Controller
             'exists' => false
         ]);
     }
+
+    public function destroy(Subscription $subscription)
+    {
+        $subscription->delete();
+
+        return redirect()->back();
+    }
 }
