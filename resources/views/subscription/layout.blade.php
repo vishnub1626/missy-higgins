@@ -15,12 +15,12 @@
 
 <body>
     <div class="bg-yellow h-screen flex p-4 font-sans">
-        <div class="m-auto bg-white rounded-lg shadow-xl p-3 md:flex md:p-0">
+        <div class="m-auto bg-white rounded-lg shadow-xl p-3 md:flex md:p-0 md:w-1/2">
             <div>
                 <img src="/images/background.jpg" alt="Abstract pattern"
                     class="h-40 md:h-96 md:rounded-bl-lg md:rounded-tl-lg ">
             </div>
-            <div class="mt-2 md:mt-0 md:p-8 md:flex md:justify-center md:items-center">
+            <div class="mt-2 md:mt-0 md:p-8 md:flex md:justify-center md:items-center md:max-w-xs">
                 @yield('content')
             </div>
         </div>

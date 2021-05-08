@@ -9,7 +9,12 @@
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
         </div>
-        <h1 class="font-bold leading-8 text-lg md:text-xl">Thank you for subscribing!</h1>
-        <p class="text-gray-600 text-base mt-1">You will be sent the next issue of our newsletter shortly.</p>
+        @if ($exists)
+            <h1 class="font-bold leading-8 text-lg md:text-xl">Already subscribed!</h1>
+            <p class="text-gray-600 text-base mt-1">{{ $subscription->email }} is already subscribed to the newsletter.</p>
+        @else
+            <h1 class="font-bold leading-8 text-lg md:text-xl">Thank you {{ $subscription->name }}</h1>
+            <p class="text-gray-600 text-base mt-1">You will be sent the next issue of our newsletter shortly.</p>
+        @endif
     </div>
 @endsection

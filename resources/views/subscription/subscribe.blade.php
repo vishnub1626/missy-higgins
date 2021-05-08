@@ -9,16 +9,16 @@
             <div class="mb-4">
                 <input
                     class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="name" type="text" placeholder="Name">
+                    id="name" type="text" placeholder="Name" name="name" required>
             </div>
             <div class="mb-6">
                 <input
                     class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="email" type="email" placeholder="Email">
+                    id="email" type="email" placeholder="Email" name="email" required>
             </div>
             <button
                 class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline"
-                type="submit">
+                type="submit" required>
                 Subscribe
             </button>
         </form>
