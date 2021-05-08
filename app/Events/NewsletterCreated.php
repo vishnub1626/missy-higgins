@@ -12,11 +12,6 @@ class NewsletterCreated
 
     public $newsletter;
 
-    /**
-     * Create a new event instance.
-     *
-     * @return void
-     */
     public function __construct($newsletter)
     {
         $this->newsletter = $newsletter;
