@@ -18,7 +18,7 @@
             </div>
             <button
                 class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline"
-                type="submit" required>
+                type="submit">
                 Subscribe
             </button>
         </form>
