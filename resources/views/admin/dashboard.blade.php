@@ -1,24 +1,6 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="relative bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
-                <div class="flex justify-start lg:w-0 lg:flex-1">
-                    <a href="#">
-                        <span class="sr-only">Missy Higgins</span>
-                        <img class="h-10 w-auto" src="/images/logo.gif" alt="">
-                    </a>
-                </div>
-                <div class="md:flex items-center justify-end md:flex-1 lg:w-0">
-                    <a href="/admin/logout"
-                        class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-                        Log out
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="max-w-7xl mx-auto px-6" id="dashboard">
         <div class="py-6">
             <div>
@@ -44,7 +26,9 @@
                         </form>
                     </div>
                     <div class="underline cursor-pointer text-blue-800 font-bold mt-4 md:mt-0 self-end md:self-auto">
-                        Email all subscribers
+                        <a href="/admin/newsletter/send?to=all">
+                            Email all subscribers
+                        </a>
                     </div>
                 </div>
             </div>
@@ -56,11 +40,13 @@
                         <div class="md:w-1/2">{{ $subscription->email }}</div>
                         <div class="md:flex md:items-center md:justify-center mt-4 md:mt-0">
                             <button class="underline text-blue-500 cursor-pointer mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-                                </svg>
+                            <a href="/admin/newsletter/send?to={{ $subscription->email }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                                    </svg>
+                            </a>
                             </button>
                             <form method="post" action="/admin/subscriptions/{{ $subscription->id }}">
                                 <input type="hidden" name="_method" value="DELETE">
