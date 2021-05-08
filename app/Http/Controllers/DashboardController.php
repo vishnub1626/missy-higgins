@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function show()
+    public function show(Request $request)
     {
-        $subscriptions = Subscription::paginate(30);
+        $subscriptions = Subscription::query()
+            ->when($request->input('q'), function ($query, $q) {
+                $query->where('email', 'LIKE', "%{$q}%");
+            })
+            ->paginate(30);
 
         return view('admin.dashboard', [
             'subscriptions' => $subscriptions

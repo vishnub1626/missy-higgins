@@ -12,10 +12,10 @@
                             <div class="flex items-center border border-blue-100 rounded">
                                 <input
                                     class="appearance-none bg-white border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-                                    type="text" placeholder="Search.." name="q">
+                                    type="text" placeholder="Search by email.." name="q" value="{{ request('q', '') }}">
                                 <button
                                     class="flex-shrink-0 text-sm py-1 px-2 rounded-r bg-blue-500 hover:bg-blue-700 text-white"
-                                    type="button">
+                                    type="submit">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
